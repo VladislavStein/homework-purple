@@ -1,15 +1,6 @@
-const language = prompt("Введите язык");
+const hasLicence = true;
+const age = 18;
+const isDrunk = false;
 
-switch (language) {
-    case 'en':
-        console.log('Hello!');
-        break;
-    case 'ru':
-        console.log('Здравствуйте!');
-        break;
-    case 'de':
-        console.log('Gutten tag!');
-        break;
-}
-
-//
+const canDrive = (hasLicence && age >= 18 && !isDrunk);
+console.log(canDrive);
