@@ -1,34 +1,18 @@
-function convert (amount, baseCurrency, convertedCurrency) {
-    if (baseCurrency === undefined || convertedCurrency === undefined) {
-        return null;
-    }
-    if (baseCurrency !== convertedCurrency) {
-        switch (convertedCurrency) {
-        case 'usd':
-            if (baseCurrency === 'rub') {
-                return amount / 10;
-            } else if (baseCurrency === 'eur') {
-                return amount * 1.1;
-            }
-            break;
-        case 'eur':
-            if (baseCurrency === 'rub') {
-                return amount / 11;
-            } else if (baseCurrency === 'usd') {
-                return amount / 1.1;
-            }
-            break;
-        case 'rub':
-            if (baseCurrency === 'usd') {
-                return amount * 10;
-            } else if (baseCurrency === 'eur') {
-                return amount * 11;
-            }
-            break;
-        default:
-            return null;
-        }
+function crypto(pass) {
+    const splittedPass = pass.split('');
+    const [first, second, third, ...others] = splittedPass;
+    const result = [second, third, others, first].flat();
+    return result;
+}
+
+function check(str, pass) {
+    const block1 = str.slice(0, 2).join('');
+    const block2 = str.slice(2, -1).join('');
+    const block3 = str.slice(-1).join('');
+    const result = block3 + block1 + block2;
+    if (result === pass) {
+        return true;
     } else {
-        return null;
+        return false;
     }
 }
