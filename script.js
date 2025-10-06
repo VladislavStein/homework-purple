@@ -1,23 +1,14 @@
-function crypto(pass) {
-    const splittedPass = pass.split('');
-    const first = splittedPass.slice(0, 4).reverse().join('');
-    let second = splittedPass.slice(4).reverse().join('');
-    second = second[0] + second[2] + second[1] + second[3];
-    return first + second;
-}
+const arr = [1, 40, -5, 10, 0];
 
-function check(str, pass) {
-    const block1 = str.slice(0, 4).split('').reverse().join('');
-    let block2 = str.slice(4).split('').reverse().join('');
-    block2 = block2[0] + block2[2] + block2[1] + block2[3];
-    console.log(block1 + block2);
-    const result = block1 + block2;
-    if (result === pass) {
-        return true;
-    } else {
-        return false;
+function sortArr(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
     }
+    return arr;
 }
 
-console.log(check('ssapdorw', 'password'));     
-// console.log(crypto('password'));
+console.log(sortArr(arr));
