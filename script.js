@@ -1,14 +1,18 @@
-const arr = [1, 40, -5, 10, 0];
-
-function sortArr(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = i + 1; j < arr.length; j++) {
-            if (arr[i] > arr[j]) {
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
+function filter (arrOfNumbers, fn) {
+    const result = [];
+    arrOfNumbers.forEach(element => {
+        if (!fn(element)) {
+            result.push(element);
         }
-    }
-    return arr;
+    });
+    return result;
 }
 
-console.log(sortArr(arr));
+function deleteElement (element) {
+    if (element > 5) {
+        return true;
+    }
+    return false;
+}
+
+console.log(filter([3, 6, 9, 2], deleteElement));
